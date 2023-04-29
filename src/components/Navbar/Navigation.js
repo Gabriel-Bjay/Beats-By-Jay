@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import React from "react";
 import "./Navbar.css"
 import { BiSearch } from "react-icons/bi";
+import SignUp from "../SignUp";
 
 function Nav () {
+  const {user} = SignUp
+
   return(
     <div className="navbar"> 
       <Link to="/">
@@ -16,6 +19,18 @@ function Nav () {
       <div className="navbar-search">
         <input className="header_input" type="text" />
         <BiSearch className="search_icon" />
+      </div>
+      <div className="header-nav">
+      <Link to={!user && "/login"}>
+          <div className="header_option">
+            <span className="header_optionOne">
+              Hello {!user ? "Guest" : user.email}
+            </span>
+            <span className="header_optionTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   )
