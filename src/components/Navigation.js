@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css"
 import { BiSearch } from "react-icons/bi";
-import SignUp from "../SignUp";
+import SignUp from "./SignUp";
+import searchMusic from "./Search";
 
 function Nav () {
   const {user} = SignUp
+  const [music, setMusic] = useState("")
 
   return(
     <div className="navbar"> 
@@ -17,8 +19,8 @@ function Nav () {
         />
       </Link>
       <div className="navbar-search">
-        <input className="header_input" type="text" />
-        <BiSearch className="search_icon" />
+        <input className="header_input" type="text" value={music}  />
+        <BiSearch className="search_icon" onClick={searchMusic} onChange={e => setMusic(e.target.value)}/>
       </div>
       <div className="header-nav">
       <Link to={!user && "/login"}>
