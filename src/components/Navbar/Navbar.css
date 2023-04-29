@@ -1,10 +1,25 @@
-.Top {
-  background: #63D471;
+.navbar {
+  background: #111211;
+  color: antiquewhite;
   height: 85px;
   display: flex;
   justify-content: space-between;
-  padding: 0.2rem calc((100vw - 1000px) / 2);
   z-index: 12;
+  position: sticky;
+  top: 0;
+}
+.header_logo{
+  height: 65px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.navbar-search{
+  margin-top:15px ;
+}
+.navbar-search >input{
+  height: 30px;
+  width: 550px;
 }
 
 .navlink {
